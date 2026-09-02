@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maktub Live - Menú</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --white: #ffffff;
+            --bg-black: #000000;
+            --border-color: #333;
+        }
+
+        body, html {
+            background-color: var(--bg-black);
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- CONTENEDOR DE INTRO (ANIMACIÓN: 1.5s) --- */
+        #intro-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            /* Se oculta al cumplirse los 1.5 segundos */
+            animation: hideLayer 0.1s forwards;
+            animation-delay: 1.5s;
+        }
+
+        .intro-logo {
+            width: 250px;
+            height: auto;
+            opacity: 0;
+            /* La animación de aparecer y desvanecerse dura 1.5 segundos */
+            animation: logoFlash 1.5s ease-in-out forwards;
+        }
+
+        @keyframes logoFlash {
+            0% { opacity: 0; transform: scale(0.95); }
+            35% { opacity: 1; transform: scale(1); }
+            65% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.05); }
+        }
+
+        @keyframes hideLayer {
+            to { visibility: hidden; opacity: 0; }
+        }
+
+        /* --- CONTENEDOR DEL MENÚ --- */
+        #menu-content {
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            /* El menú empieza a aparecer justo al segundo 1.5 */
+            animation: fadeInMenu 0.8s ease-out forwards;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes fadeInMenu {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .menu-container {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            background-color: var(--bg-black);
+        }
+
+        .logo-header {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 10px 0 20px 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--white);
+        }
+
+        .section-title {
+            border-top: 1px solid var(--white);
+            border-bottom: 1px solid var(--white);
+            padding: 5px 0;
+            margin: 20px 0 10px 0;
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            color: var(--white);
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+            font-size: 15px;
+            color: var(--white);
+        }
+
+        .item-name {
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .dots {
+            flex-grow: 1;
+            border-bottom: 2px dotted #444;
+            margin: 0 5px;
+            position: relative;
+            top: -4px;
+        }
+
+        .price {
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 9px;
+            font-weight: bold;
+            color: #666;
+            border-top: 1px solid var(--border-color);
+            padding-top: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Intro Rápida (1.5s) -->
+    <div id="intro-layer">
+        <img src="logo_maktub.png" alt="Logo" class="intro-logo">
+    </div>
+
+    <!-- Menú Principal -->
+    <div id="menu-content">
+        <div class="menu-container">
+            <header>
+                <img src="logo_maktub.png" alt="Maktub Live" class="logo-header">
+                <h2>MENÚ DE LICORES & BEBIDAS</h2>
+            </header>
+
+            <div class="section-title">AGUARDIENTE & RON</div>
+            <div class="menu-item"><span class="item-name">Amarillo BOT</span><span class="dots"></span><span class="price">$160.000</span></div>
+            <div class="menu-item"><span class="item-name">Amarillo Med</span><span class="dots"></span><span class="price">$95.000</span></div>
+            <div class="menu-item"><span class="item-name">Antioqueño BOT</span><span class="dots"></span><span class="price">$160.000</span></div>
+            <div class="menu-item"><span class="item-name">Antioqueño Med</span><span class="dots"></span><span class="price">$95.000</span></div>
+            <div class="menu-item"><span class="item-name">Caldas BOT</span><span class="dots"></span><span class="price">$160.000</span></div>
+            <div class="menu-item"><span class="item-name">Caldas Med</span><span class="dots"></span><span class="price">$95.000</span></div>
+
+            <div class="section-title">LICORES ESPECIALES</div>
+            <div class="menu-item"><span class="item-name">Jägermeister BOT</span><span class="dots"></span><span class="price">$245.000</span></div>
+            <div class="menu-item"><span class="item-name">Jägermeister Med</span><span class="dots"></span><span class="price">$165.000</span></div>
+            <div class="menu-item"><span class="item-name">Jose Cuervo BOT</span><span class="dots"></span><span class="price">$245.000</span></div>
+            <div class="menu-item"><span class="item-name">Gordons BOT</span><span class="dots"></span><span class="price">$215.000</span></div>
+            <div class="menu-item"><span class="item-name">Sello Rojo BOT</span><span class="dots"></span><span class="price">$215.000</span></div>
+            <div class="menu-item"><span class="item-name">Sello Rojo Med</span><span class="dots"></span><span class="price">$135.000</span></div>
+            <div class="menu-item"><span class="item-name">Smirnoff Tamarindo</span><span class="dots"></span><span class="price">$135.000</span></div>
+
+            <div class="section-title">CERVEZAS</div>
+            <div class="menu-item"><span class="item-name">Budweiser</span><span class="dots"></span><span class="price">$10.000</span></div>
+            <div class="menu-item"><span class="item-name">Heineken</span><span class="dots"></span><span class="price">$10.000</span></div>
+            <div class="menu-item"><span class="item-name">Smirnoff Ice</span><span class="dots"></span><span class="price">$18.000</span></div>
+
+            <div class="section-title">PASANTES</div>
+            <div class="menu-item"><span class="item-name">Red Bull</span><span class="dots"></span><span class="price">$15.000</span></div>
+            <div class="menu-item"><span class="item-name">Electrolit</span><span class="dots"></span><span class="price">$20.000</span></div>
+            <div class="menu-item"><span class="item-name">Gatorade</span><span class="dots"></span><span class="price">$15.000</span></div>
+            <div class="menu-item"><span class="item-name">Coca Cola Lata</span><span class="dots"></span><span class="price">$12.000</span></div>
+            <div class="menu-item"><span class="item-name">Agua Cristal</span><span class="dots"></span><span class="price">$10.000</span></div>
+
+            <div class="section-title">COMPLEMENTOS</div>
+            <div class="menu-item"><span class="item-name">Cigarrillos Med</span><span class="dots"></span><span class="price">$15.000</span></div>
+            <div class="menu-item"><span class="item-name">Bon Bon Bum</span><span class="dots"></span><span class="price">$2.000</span></div>
+
+            <footer class="footer">
+                EL EXCESO DE ALCOHOL ES PERJUDICIAL PARA LA SALUD. PROHIBIDA LA VENTA A MENORES DE EDAD.
+            </footer>
+        </div>
+    </div>
+
+</body>
+</html>
